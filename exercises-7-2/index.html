@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .item{
+            width:25vw; height: 20px; padding: 5px; margin: 2px; background: gray; color: white;
+            text-align: center;
+        }
+        .selected{
+            background: red;
+        }
+        #stack{
+            width: 30vw;
+            float: left;
+        }
+        #body{
+            width: 15vw;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <div id="stack">&nbsp;</div>    
+    <div id="body">
+        <button id="add">
+            Add Item
+        </button>
+    </div>
+
+    <script src="../exercises/libs/jquery-1.5.0.js"></script>
+    <script src="controller.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>

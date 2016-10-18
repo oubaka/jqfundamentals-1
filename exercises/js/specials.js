@@ -14,8 +14,7 @@ function Specials(){
 
 Specials.prototype.loadData = function(){
     if(this.data){
-        var currentSelection = this.data[[this.select.val()]];
-        console.log(currentSelection);
+        var currentSelection = this.data[[this.select.val()]];        
         this.content.html(currentSelection.text);
         this.img.attr('src', '.' + currentSelection.image);
         this.title.html(currentSelection.title);
