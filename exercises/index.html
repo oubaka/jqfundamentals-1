@@ -11,6 +11,25 @@
 
 	<style>
 	#blog p.excerpt { display: none; }
+
+	.nav{
+		display: inline-block;
+	}
+
+	.nav li{
+		float: left;
+		padding: 15px;
+		background-color: #333;
+		margin: 0 5px 0 0;
+		position: relative;
+		height: 20px;
+		list-style-type: none;
+		color: #fff;
+		cursor: pointer;		
+	}
+	.nav li.selected{
+		background-color: red;
+	}
 	</style>
 
 </head>
@@ -148,14 +167,10 @@
 	</div>
 
 <script src="libs/jquery-1.5.0.js"></script>
-<script src="js/tabs.js"></script>
+<script src="js/slideshow.js"></script>
 
 <script>
-	var a = new Tabs();	
-	var execute = null;
-	for(var method in a){
-		a[method].call(null);
-	}		
+	var a = new Slideshow();				
 </script>
 <!--
 <script src="js/sandbox.js"></script>
