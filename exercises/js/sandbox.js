@@ -24,7 +24,7 @@ Sandbox.prototype.getThirdItem1 = function () {
 
 // This is the best method because it does not have to iterate through all the dom elements
 Sandbox.prototype.getThirdItem2 = function () {
-    var thirdItem = $('#myListItem')[0];
+    var thirdItem = $('#myListItem');
     console.log(thirdItem);
     return thirdItem;
 }
@@ -39,7 +39,7 @@ Sandbox.prototype.getThirdItem3 = function () {
  * 2.1.3. Select the label for the search input using an attribute selector.
  */
 Sandbox.prototype.getSearchLabel = function () {
-    var searchLabel = $('label[for=q]')[0];
+    var searchLabel = $('label[for=q]');
     console.log(searchLabel);
     return searchLabel;
 }
@@ -104,7 +104,7 @@ Sandbox.prototype.myListAddRemoveClass = function () {
  * 2.2.4. Select the select element inside #specials; traverse your way to the submit button.
  */
 Sandbox.prototype.specialsSelectAndTraverse = function () {
-    var submit = $('#specials select[name=day]').parent().next('li').find('.input_submit')[0];
+    var submit = $('#specials select[name=day]').parent().next('li').find('.input_submit');
     console.log(submit);
 }
 
@@ -123,11 +123,11 @@ Sandbox.prototype.slideActivateDisable = function () {
  * 2.3.1. Add five new list items to the end of the unordered list #myList.
  */
 Sandbox.prototype.myListAddItems = function () {
-    var newItem = null;
-    for (var i = 8; i <= 13; i++) {
-        newItem = $('<li>').text('new item ' + i);
-        $('#myList').append(newItem);
+    var newItem = '';
+    for (var i = 8; i < 13; i++) {
+        newItem += '<li>new item ' + i + '</li>';        
     }
+    $('#myList').append(newItem);
 }
 
 /**
@@ -151,7 +151,7 @@ Sandbox.prototype.divModuleAddH2 = function () {
  */
 Sandbox.prototype.selectAddOption = function () {
     var option = $('<option>').attr('value', 'Wednesday').text('Wednesday');
-    $('select[name=day]').append(option);
+    option.insertAfter($('select[name=day] option').get(2));
 }
 
 /**
@@ -159,6 +159,8 @@ Sandbox.prototype.selectAddOption = function () {
  */
 Sandbox.prototype.addNewDivModule = function () {
     var image = $('img').first().clone();
-    var newDiv = $('<div>').addClass('module').append(image);
-    newDiv.insertAfter($('div.module').last());
+    $('<div>')
+    .addClass('module')
+    .append(image)
+    .insertAfter($('div.module').last());
 }
