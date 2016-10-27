@@ -1,5 +1,5 @@
 function Blog() {
-
+    this.clickAndSlide();
 }
 
 // 5.1	Reveal hidden text.

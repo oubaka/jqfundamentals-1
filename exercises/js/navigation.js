@@ -1,5 +1,5 @@
 function Navigation(){
-
+    this.showDropDown();
 }
 
 /**

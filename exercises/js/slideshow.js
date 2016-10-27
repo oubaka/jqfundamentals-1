@@ -9,16 +9,12 @@ function Slideshow() {
     this.onSlide = [];
     this.navs = [];
 
-    this.moveSlideshowToTop();
+    /**
+     * 1. Move the #slideshow element to the top of the body.
+     */
+    $('#slideshow').prependTo('body');
     this.cycle();
     this.showNavigation();
-}
-
-/**
- * 1. Move the #slideshow element to the top of the body.
- */
-Slideshow.prototype.moveSlideshowToTop = function moveSlideshowToTop() {
-    $('#slideshow').prependTo('body');
 }
 
 /**
