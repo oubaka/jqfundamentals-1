@@ -15,3 +15,5 @@ Blog.prototype.clickAndSlide = function () {
     e.preventDefault();
   });
 }
+
+var blog = new Blog();

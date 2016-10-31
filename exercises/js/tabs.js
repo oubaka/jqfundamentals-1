@@ -42,3 +42,5 @@ function Tabs() {
    */
   $('#new-ul li').first().trigger('click');
 }
+
+var tabs = new Tabs();

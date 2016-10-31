@@ -29,3 +29,5 @@ function InputHint() {
     }
   });
 }
+
+var inputHint = new InputHint();

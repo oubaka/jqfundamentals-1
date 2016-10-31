@@ -164,3 +164,13 @@ Sandbox.prototype.addNewDivModule = function () {
     .append(image)
     .insertAfter($('div.module').last());
 }
+
+var sandbox = new Sandbox();
+
+for(var key in sandbox){
+  console.log(typeof sandbox[key]);
+  if (typeof sandbox[key] == 'function') {
+    console.log('calling: ', key);
+    sandbox[key].call();
+  }
+}

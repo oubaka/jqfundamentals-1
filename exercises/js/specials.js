@@ -42,3 +42,5 @@ Specials.prototype.appendTargetDiv = function () {
   // remove submit button
   $('#specials>form input').parent().remove();
 }
+
+var specials = new Specials();

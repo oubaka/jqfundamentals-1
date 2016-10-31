@@ -18,3 +18,5 @@ Navigation.prototype.showDropDown = function () {
     }
   });
 }
+
+var nav = new Navigation();

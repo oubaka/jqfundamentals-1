@@ -32,3 +32,5 @@ Load.prototype.bindClick = function () {
     });
   });
 }
+
+var load = new Load();

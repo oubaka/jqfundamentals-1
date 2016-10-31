@@ -86,3 +86,5 @@ Slideshow.prototype.showNavigation = function () {
   createNav.call(this);
   callback.call(this, this.currentSlide);
 }
+
+var slideshow = new Slideshow();
