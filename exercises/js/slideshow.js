@@ -4,11 +4,15 @@
 
 function Slideshow() {
   this.slides = [];
-  this.currentSlide = null;
-  this.previousSlide = null;
+  this.currentSlide = undefined;
+  this.previousSlide = undefined;
   this.onSlide = [];
-  this.navs = [];
+  this.navs = [];  
 
+  this.init();
+}
+
+Slideshow.prototype.init = function () {
   /**
    * 1. Move the #slideshow element to the top of the body.
    */
@@ -56,34 +60,34 @@ Slideshow.prototype.slideTask = function () {
   }.bind(this));
 }
 
+Slideshow.prototype.callback = function (currentSlide) {
+  var index = this.slides.index(currentSlide);
+  this.navs.forEach(function (val, i) {
+    if (index == i) {
+      val.addClass('selected');
+    } else {
+      val.removeClass('selected');
+    }
+  });
+}
+
+Slideshow.prototype.createNav = function () {
+  var ul = $('<ul>').addClass('nav');
+  this.slides.each(function (index) {
+    var li = $('<li>');
+    li.text('item ' + (1 + index));
+    ul.append(li);
+    this.navs.push(li);
+  }.bind(this));
+  ul.insertAfter('#slideshow');
+}
+
 /**
  * 4. For an extra challenge, create a navigation area under the slideshow that shows how many images there are and which image you're currently viewing. (Hint: $.fn.prevAll will come in handy for this.)
  */
-Slideshow.prototype.showNavigation = function () {
-  var callback = function (currentSlide) {
-    var index = this.slides.index(currentSlide);
-    this.navs.forEach(function (val, i) {
-      if (index == i) {
-        val.addClass('selected');
-      } else {
-        val.removeClass('selected');
-      }
-    });
-  }
-
-  var createNav = function () {
-    var ul = $('<ul>').addClass('nav');
-    this.slides.each(function (index) {
-      var li = $('<li>');
-      li.text('item ' + (1 + index));
-      ul.append(li);
-      this.navs.push(li);
-    }.bind(this));
-    ul.insertAfter('#slideshow');
-  };
-
-  this.onSlide.push(callback);
-  createNav.call(this);
+Slideshow.prototype.showNavigation = function () {  
+  this.onSlide.push(this.callback);
+  this.createNav.call(this);
   callback.call(this, this.currentSlide);
 }
 

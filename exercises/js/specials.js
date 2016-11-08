@@ -2,14 +2,17 @@
  * 6.2	Load content using JSON
  */
 function Specials() {
-  this.div = null;
-  this.select = null;
-  this.title = null;
-  this.img = null;
-  this.content = null;
-  this.data = null;
+  // declared as undefined to show that this object has these variables in used
+  // somewhere in the code
+  this.div = undefined;
+  this.select = undefined;
+  this.title = undefined;
+  this.img = undefined;
+  this.content = undefined;
+  // used later to check if data has been loaded to avoid multiple calls to server
+  this.data = undefined;
 
-  this.appendTargetDiv();
+  this.init();
 }
 
 Specials.prototype.loadData = function () {
@@ -27,7 +30,7 @@ Specials.prototype.loadData = function () {
   }
 }
 
-Specials.prototype.appendTargetDiv = function () {
+Specials.prototype.init = function () {
   var form = $('#specials>form');
   this.div = $('<div>');
   this.title = $('<h2>');
@@ -40,7 +43,7 @@ Specials.prototype.appendTargetDiv = function () {
   this.select.change(this.loadData.bind(this));
 
   // remove submit button
-  $('#specials>form input').parent().remove();
+  form.find('input').parent().remove();
 }
 
 var specials = new Specials();
